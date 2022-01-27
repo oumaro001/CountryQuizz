@@ -78,6 +78,7 @@ function showCounttryByContinents(continent) {
 
 europe.addEventListener('click', () => {
 
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Europe");
 
 
@@ -85,6 +86,7 @@ europe.addEventListener('click', () => {
 
 afrique.addEventListener('click', () => {
 
+ afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Africa");
 
 
@@ -92,12 +94,14 @@ afrique.addEventListener('click', () => {
 
 amerique.addEventListener('click', () => {
 
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("America");
 
 
 });
 asie.addEventListener('click', () => {
 
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Asia");
 
 
@@ -105,13 +109,15 @@ asie.addEventListener('click', () => {
 
 oceanie.addEventListener('click', () => {
 
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Oceania");
 
 
 });
 
 monde.addEventListener('click', () => {
-
+    
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("all");
 
 
