@@ -15,10 +15,60 @@ let afficheDrapeau = document.getElementById("afficheDrapeau");
 
 
 
-function showCounttryByContinents(continent) {
-    let tabCountry = [];
-    let nameCountry = "";
+/*----- La barre compteur -------*/
 
+let compteurBarre = document.querySelector('.compteurBarre');
+compteurBarre.style.display = "none";
+
+
+/*---------function pour afficher les reponses -------*/
+function reponseQuestions (a , b , c ){
+
+    let reponseA ="";
+    let reponseB ="";
+    let reponseC ="";
+
+    let tabRep =[a , b ,c ];
+
+    let numA = Math.floor(Math.random() * tabRep.length);
+        if(tabRep.indexOf(numA),0,tabRep.length) {
+           reponseA = tabRep[numA];
+        }
+    
+   let numB = Math.floor(Math.random() * tabRep.length);
+   if(tabRep.indexOf(numB),0,tabRep.length){
+    reponseB = tabRep[numB];
+       
+}
+  
+    let numC = Math.floor(Math.random() * tabRep.length);
+    if(tabRep.indexOf(numC),0,tabRep.length){
+            reponseC = tabRep[numC];
+
+        
+    }
+
+
+    let listeReponses = document.getElementById('listeReponses');
+    listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
+                                '<li><a href="#">' + reponseA + "</a></li>" + "<br>" + 
+                                '<li><a href="#">' + reponseB + "</a></li>" + "<br>" +
+                                '<li><a href="#">' + reponseC + "</a></li>";  
+
+
+}
+/*--------- afficher les drapeau des pays en fonction du continent --------*/
+
+function showCounttryByContinents(continent) {
+
+
+    /*--les reponses a la question--*/
+    let nameReponse1 = "";
+    let nameReponse2 = "";
+    let nameReponse3 = "";
+
+
+    /*--les requetes pour avoir les pays par continent--*/
     let req = new XMLHttpRequest();
     if (continent == "Europe") {
         req.open("get", 'https://restcountries.com/v3.1/subregion/europe');
@@ -50,29 +100,53 @@ function showCounttryByContinents(continent) {
             if (req.status == 200) {
                 let world = req.response;
 
-                let randomCountry = Math.floor(Math.random() * world.length);
-                if (world.indexOf(randomCountry, 0, world.length)) {
-                    let result = world[randomCountry];
+                /*--prendre un pays aleatoire et le mettre dans randomCountry3--- */
+                let randomCountry2 = Math.floor(Math.random() * world.length);
+
+                if (world.indexOf(randomCountry2, 0, world.length)) {
+                    let result2 = world[randomCountry2];
+                    nameReponse2 = result2.name.common;
+                }
+
+                /* randomCountry3--- */
+                let randomCountry3 = Math.floor(Math.random() * world.length);
+                if (world.indexOf(randomCountry3, 0, world.length)) {
+                    let result3 = world[randomCountry3];
+                    nameReponse3 = result3.name.common;
+                }
+
+
+                /* randomCountry1 et afficher le drapeau--- */
+
+                let randomCountry1 = Math.floor(Math.random() * world.length);
+
+                if (world.indexOf(randomCountry1, 0, world.length)) {
+                    let result = world[randomCountry1];
+                    nameReponse1 = result.name.common;
+
+
                     let countryName = document.createElement('div');
                     countryName.classList.add("countryDrapeau")
                     afficheDrapeau.appendChild(countryName);
                     let drapeau = result.flags.png;
                     countryName.innerHTML = '<img src = ' + drapeau + '>';
-                    nameCountry = result.name.common;
 
                 }
+                reponseQuestions(nameReponse1,nameReponse2,nameReponse3,)
+
 
 
             }
 
-        }
 
+        }
     }
-    return nameCountry;
-    return drapeau;
+
+    compteurBarre.style.display = "block";
 
 
 }
+
 
 
 
@@ -86,7 +160,7 @@ europe.addEventListener('click', () => {
 
 afrique.addEventListener('click', () => {
 
- afficheDrapeau.innerHTML = " ";
+    afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Africa");
 
 
@@ -116,7 +190,7 @@ oceanie.addEventListener('click', () => {
 });
 
 monde.addEventListener('click', () => {
-    
+
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("all");
 
