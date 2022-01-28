@@ -47,6 +47,10 @@ function reponseQuestions (a , b , c ,result){
     let reponseA ="";
     let reponseB ="";
     let reponseC ="";
+    /*let ligne1  = document.createElement('button');
+    l
+    let ligne2  = document.createElement('li');
+    let ligne3  = document.createElement('li');*/
 
     let nameDrapeau = result;
 
@@ -55,20 +59,40 @@ function reponseQuestions (a , b , c ,result){
     let numA = Math.floor(Math.random() * tabRep.length);
         if(tabRep.indexOf(numA),0,tabRep.length) {
            reponseA = tabRep[numA];
+           
         }
     
    let numB = Math.floor(Math.random() * tabRep.length);
    if(tabRep.indexOf(numB),0,tabRep.length){
-    reponseB = tabRep[numB];
+       if(numB !== numA){
+        reponseB = tabRep[numB];
+       }
+
+       else{
+           numB++
+           reponseB = tabRep[numB];
+       }
        
 }
   
-    let numC = Math.floor(Math.random() * tabRep.length);
-    if(tabRep.indexOf(numC),0,tabRep.length){
-            reponseC = tabRep[numC];
-
+let numC = Math.floor(Math.random() * tabRep.length);
+if(tabRep.indexOf(numC),0,tabRep.length){
+    if(numC !== numB){
+        reponseC = tabRep[numC];
         
+        }
+
+    else if(numC !== numA){
+        reponseC = tabRep[numC];
+
     }
+
+    else{
+        reponseC = tabRep[numC];
+    }
+
+    
+}
 
 
     let listeReponses = document.getElementById('listeReponses');
@@ -80,18 +104,11 @@ function reponseQuestions (a , b , c ,result){
         listeReponses.addEventListener('click', () => {
 
         gagnerPerdu(reponseA,nameDrapeau);
-
-    })
-    listeReponses.addEventListener('click', () => {
-
         gagnerPerdu(reponseB,nameDrapeau);
-
-    })
-    listeReponses.addEventListener('click', () => {
-
         gagnerPerdu(reponseC,nameDrapeau);
 
     })
+    
 
 }
 
