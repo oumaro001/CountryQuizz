@@ -88,6 +88,11 @@ nav button {
     margin-top: 10px;
 }
 
+.resultat{
+
+    font-size: 4em;
+}
+
 
 .compteurRejouer{
 
@@ -154,7 +159,7 @@ ol li a{
 
 ol li a:hover{
 
-    color: green;
+    color: rgb(230, 207, 9);
 }
 
 

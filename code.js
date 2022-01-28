@@ -20,13 +20,35 @@ let afficheDrapeau = document.getElementById("afficheDrapeau");
 let compteurBarre = document.querySelector('.compteurBarre');
 compteurBarre.style.display = "none";
 
+/*---------function qui compare les reponses -------*/
+function gagnerPerdu (clickrep,result){
 
+
+    let gagné = '<p style="color: green">T\'as Gagné !!!</p>';
+    let perdu = '<p style="color: red">T\'as Perdu !!!</p>';
+    let nameComparer = result.name.common;
+
+
+
+    if(clickrep == nameComparer){
+        
+        listeReponses.innerHTML = " ";
+        listeReponses.innerHTML = gagné;
+    }
+    else{
+
+        listeReponses.innerHTML = " ";
+        listeReponses.innerHTML = perdu;
+    }
+}
 /*---------function pour afficher les reponses -------*/
-function reponseQuestions (a , b , c ){
+function reponseQuestions (a , b , c ,result){
 
     let reponseA ="";
     let reponseB ="";
     let reponseC ="";
+
+    let nameDrapeau = result;
 
     let tabRep =[a , b ,c ];
 
@@ -53,10 +75,27 @@ function reponseQuestions (a , b , c ){
     listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
                                 '<li><a href="#">' + reponseA + "</a></li>" + "<br>" + 
                                 '<li><a href="#">' + reponseB + "</a></li>" + "<br>" +
-                                '<li><a href="#">' + reponseC + "</a></li>";  
+                                '<li><a href="#">' + reponseC + "</a></li>";
+    
+        listeReponses.addEventListener('click', () => {
 
+        gagnerPerdu(reponseA,nameDrapeau);
+
+    })
+    listeReponses.addEventListener('click', () => {
+
+        gagnerPerdu(reponseB,nameDrapeau);
+
+    })
+    listeReponses.addEventListener('click', () => {
+
+        gagnerPerdu(reponseC,nameDrapeau);
+
+    })
 
 }
+
+
 /*--------- afficher les drapeau des pays en fonction du continent --------*/
 
 function showCounttryByContinents(continent) {
@@ -131,8 +170,10 @@ function showCounttryByContinents(continent) {
                     let drapeau = result.flags.png;
                     countryName.innerHTML = '<img src = ' + drapeau + '>';
 
+                    reponseQuestions(nameReponse1,nameReponse2,nameReponse3,result)
+
+
                 }
-                reponseQuestions(nameReponse1,nameReponse2,nameReponse3,)
 
 
 
