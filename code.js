@@ -34,10 +34,15 @@ function gagnerPerdu(clickrep, result) {
 
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = gagné;
+        afficheDrapeau.innerHTML= " ";
+        afficheDrapeau.innerHTML ='<img src= "gagnerGif.gif">';
+
     } else {
 
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = perdu;
+        afficheDrapeau.innerHTML= " ";
+        afficheDrapeau.innerHTML ='<img src= "perduGif.gif">';
     }
 }
 /*---------function pour afficher les reponses -------*/
@@ -114,6 +119,12 @@ function reponseQuestions(a, b, c, result) {
 
 
 }
+
+
+/*-------------fonction pour le compteur---------------------*/
+
+
+
 
 
 /*--------- afficher les drapeau des pays en fonction du continent --------*/
@@ -207,7 +218,6 @@ function showCounttryByContinents(continent) {
 
 
 }
-
 
 
 

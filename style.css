@@ -21,7 +21,7 @@ nav {
 
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 25px;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -46,12 +46,10 @@ nav button {
 
 }
 
-
-
 .sectionGame{
     position: relative;
     flex-flow:  wrap;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .sectionGame img{
@@ -161,12 +159,82 @@ ol li a:hover{
 
     color: rgb(230, 207, 9);
 }
+/*-------------------------RESPONSIVES MEDIA----------------*/
+
+@media screen and (max-width: 700px) {
 
 
-@media screen and (width-max: 800px) {
+
+    body{
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: normal;
+    }
     nav {
 
         justify-content: center;
-        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+
     }
+
+    button{
+
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 90%;
+    }
+
+
+        .sectionGame{
+
+            display: grid;
+            grid-template-rows: 300px 500px;
+            grid-template-areas: "img" "question";
+            
+        }
+
+        .sectionGame > #afficheDrapeau{
+
+            grid-area: img;
+        }
+
+        .sectionGame img{
+
+            position: absolute;
+            left: 1%; 
+            width: 22em;
+            height: 264px;
+
+            
+        }
+
+
+        .sectionGame  > .Questions{
+
+            grid-area: question;
+            display: flex;
+            position: relative;
+            right: 0px;
+            text-align:center;
+            justify-content: flex-start;
+            align-items:center;
+            
+            
+        }
+
+        .compteurRejouer > .compteurBarre{
+
+           bottom: -30%;
+           width: 90%;
+
+        }
+
+        .compteurRejouer > #rejouer{
+
+            bottom: -40%;
+        }
 }
