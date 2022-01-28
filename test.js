@@ -3,9 +3,10 @@ function reponseQuestions (a , b , c ,result){
     let reponseA ="";
     let reponseB ="";
     let reponseC ="";
-    let ligne1  = document.createElement('button');
-    let ligne2  = document.createElement('li');
-    let ligne3  = document.createElement('li');
+    let ligne1  = document.querySelector('ligne1');
+    let ligne2  = document.querySelector('ligne2');
+    let ligne3  = document.querySelector('ligne3');
+
 
     let nameDrapeau = result;
 
@@ -35,17 +36,16 @@ function reponseQuestions (a , b , c ,result){
 
 
     let listeReponses = document.getElementById('listeReponses');
-    ligne1.appendChild(reponseA);
-    listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
-                                '<li><a href="#">' + ligne1 + "</a></li>" + "<br>" + 
-                                '<li><a href="#">' + reponseB + "</a></li>" + "<br>" +
-                                '<li><a href="#">' + reponseC + "</a></li>";
+    listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>";
+    ligne1.innerHTML = reponseA;
+    ligne2.innerHTML = reponseB;
+    ligne3.innerHTML = reponseC;
+                                
     
-        listeReponses.addEventListener('click', () => {
+        ligne1.addEventListener('click', () => {
 
         gagnerPerdu(reponseA,nameDrapeau);
-        gagnerPerdu(reponseB,nameDrapeau);
-        gagnerPerdu(reponseC,nameDrapeau);
+        
 
     })
     

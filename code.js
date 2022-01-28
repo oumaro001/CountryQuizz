@@ -21,7 +21,7 @@ let compteurBarre = document.querySelector('.compteurBarre');
 compteurBarre.style.display = "none";
 
 /*---------function qui compare les reponses -------*/
-function gagnerPerdu (clickrep,result){
+function gagnerPerdu(clickrep, result) {
 
 
     let gagné = '<p style="color: green">T\'as Gagné !!!</p>';
@@ -30,85 +30,88 @@ function gagnerPerdu (clickrep,result){
 
 
 
-    if(clickrep == nameComparer){
-        
+    if (clickrep == nameComparer) {
+
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = gagné;
-    }
-    else{
+    } else {
 
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = perdu;
     }
 }
 /*---------function pour afficher les reponses -------*/
-function reponseQuestions (a , b , c ,result){
+function reponseQuestions(a, b, c, result) {
 
-    let reponseA ="";
-    let reponseB ="";
-    let reponseC ="";
-    /*let ligne1  = document.createElement('button');
-    l
-    let ligne2  = document.createElement('li');
-    let ligne3  = document.createElement('li');*/
+    let reponseA = "";
+    let reponseB = "";
+    let reponseC = "";
 
     let nameDrapeau = result;
 
-    let tabRep =[a , b ,c ];
+    let tabRep = [a, b, c];
 
     let numA = Math.floor(Math.random() * tabRep.length);
-        if(tabRep.indexOf(numA),0,tabRep.length) {
-           reponseA = tabRep[numA];
-           
-        }
-    
-   let numB = Math.floor(Math.random() * tabRep.length);
-   if(tabRep.indexOf(numB),0,tabRep.length){
-       if(numB !== numA){
-        reponseB = tabRep[numB];
-       }
-
-       else{
-           numB++
-           reponseB = tabRep[numB];
-       }
-       
-}
-  
-let numC = Math.floor(Math.random() * tabRep.length);
-if(tabRep.indexOf(numC),0,tabRep.length){
-    if(numC !== numB){
-        reponseC = tabRep[numC];
-        
-        }
-
-    else if(numC !== numA){
-        reponseC = tabRep[numC];
+    if (tabRep.indexOf(numA), 0, tabRep.length) {
+        reponseA = tabRep[numA];
 
     }
 
-    else{
-        reponseC = tabRep[numC];
+    let numB = Math.floor(Math.random() * tabRep.length);
+    if (tabRep.indexOf(numB), 0, tabRep.length) {
+        if (numB !== numA) {
+            reponseB = tabRep[numB];
+        } else {
+            numB++
+            reponseB = tabRep[numB];
+        }
+
     }
 
-    
-}
+    let numC = Math.floor(Math.random() * tabRep.length);
+    if (tabRep.indexOf(numC), 0, tabRep.length) {
+        if (numC !== numB) {
+            reponseC = tabRep[numC];
+
+        } else if (numC !== numA) {
+            reponseC = tabRep[numC];
+
+        } else {
+
+            reponseC = tabRep[numC];
+        }
+
+
+    }
 
 
     let listeReponses = document.getElementById('listeReponses');
     listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
-                                '<li><a href="#">' + reponseA + "</a></li>" + "<br>" + 
-                                '<li><a href="#">' + reponseB + "</a></li>" + "<br>" +
-                                '<li><a href="#">' + reponseC + "</a></li>";
-    
-        listeReponses.addEventListener('click', () => {
+        '<li id = "ligne1"><a href="#">' + reponseA + "</a></li>" + "<br>" +
+        '<li id = "ligne2"><a href="#">' + reponseB + "</a></li>" + "<br>" +
+        '<li id = "ligne3"><a href="#">' + reponseC + "</a></li>";
 
-        gagnerPerdu(reponseA,nameDrapeau);
-        gagnerPerdu(reponseB,nameDrapeau);
-        gagnerPerdu(reponseC,nameDrapeau);
+
+    let ligne1 = document.getElementById('ligne1');
+    let ligne2 = document.getElementById('ligne2');
+    let ligne3 = document.getElementById('ligne3');
+
+    ligne1.addEventListener('click', () => {
+
+        gagnerPerdu(reponseA, nameDrapeau);
 
     })
-    
+    ligne2.addEventListener('click', () => {
+
+        gagnerPerdu(reponseB, nameDrapeau);
+
+    })
+    ligne3.addEventListener('click', () => {
+
+        gagnerPerdu(reponseC, nameDrapeau);
+
+    })
+
 
 }
 
@@ -187,7 +190,7 @@ function showCounttryByContinents(continent) {
                     let drapeau = result.flags.png;
                     countryName.innerHTML = '<img src = ' + drapeau + '>';
 
-                    reponseQuestions(nameReponse1,nameReponse2,nameReponse3,result)
+                    reponseQuestions(nameReponse1, nameReponse2, nameReponse3, result)
 
 
                 }
