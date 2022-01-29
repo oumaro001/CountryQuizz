@@ -117,19 +117,17 @@ function reponseQuestions(a, b, c, result) {
     let numC = Math.floor(Math.random() * tabRep.length);
     if (tabRep.indexOf(numC), 0, tabRep.length) {
         if (numC !== numB) {
-            reponseC = tabRep[numC];
 
-        } else if (numC !== numA) {
-            reponseC = tabRep[numC];
+            if (numC !== numA) {
+                reponseC = tabRep[numC];
 
         } else {
 
-            numC = Math.floor(Math.random() * tabRep.length)
             reponseC = tabRep[numC];
         }
 
     }
-
+    }
 
     let listeReponses = document.getElementById('listeReponses');
     listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
@@ -249,6 +247,7 @@ function showCounttryByContinents(continent) {
 
         }
     }
+    
 
     compteurBarre.style.display = "block";
 
