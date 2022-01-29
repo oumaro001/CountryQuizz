@@ -20,14 +20,13 @@ let afficheDrapeau = document.getElementById("afficheDrapeau");
 let compteurBarre = document.querySelector('.compteurBarre');
 compteurBarre.style.display = "none";
 
-/*---------function qui compare les reponses -------*/
-function gagnerPerdu(clickrep, result) {
+/*---------function qui compare les reponses et savoir si on a gagné-------*/
+function gagnerPerdu(clickrep, result,finTime) {
 
 
     let gagné = '<p style="color: green">T\'as Gagné !!!</p>';
     let perdu = '<p style="color: red">T\'as Perdu !!!</p>';
     let nameComparer = result.name.common;
-
 
 
     if (clickrep == nameComparer) {
@@ -44,7 +43,22 @@ function gagnerPerdu(clickrep, result) {
         afficheDrapeau.innerHTML= " ";
         afficheDrapeau.innerHTML ='<img src= "perduGif.gif">';
     }
+
+    compteurBarre.style.display = "none";
+    
+
 }
+/*----------- le time ---------------------*/
+function time (){
+
+    if(gagnerPerdu === false){
+        afficheDrapeau.innerHTML = "";
+        afficheDrapeau.innerHTML  = '<p style="font-size: 2em">Le temps s\'est ecroulé</p>'
+    }
+
+
+};
+
 /*---------function pour afficher les reponses -------*/
 function reponseQuestions(a, b, c, result) {
 
@@ -119,11 +133,6 @@ function reponseQuestions(a, b, c, result) {
 
 
 }
-
-
-/*-------------fonction pour le compteur---------------------*/
-
-
 
 
 
@@ -216,7 +225,6 @@ function showCounttryByContinents(continent) {
 
     compteurBarre.style.display = "block";
 
-
 }
 
 
@@ -225,6 +233,7 @@ europe.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Europe");
+    
 
 
 });

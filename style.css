@@ -42,7 +42,7 @@ button {
 
 nav button {
 
-    margin: 0px 0px;
+    margin-top: 10px;
 
 }
 
@@ -161,7 +161,7 @@ ol li a:hover{
 }
 /*-------------------------RESPONSIVES MEDIA----------------*/
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 
 
 
@@ -205,8 +205,8 @@ ol li a:hover{
         .sectionGame img{
 
             position: absolute;
-            left: 1%; 
-            width: 22em;
+            left: 15%; 
+            width: 22rem;
             height: 264px;
 
             
@@ -228,13 +228,13 @@ ol li a:hover{
 
         .compteurRejouer > .compteurBarre{
 
-           bottom: -80%;
+           bottom: -100%;
            width: 90%;
 
         }
 
         .compteurRejouer > #rejouer{
 
-            bottom: -90%;
+            bottom: -110%;
         }
 }
