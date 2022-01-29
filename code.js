@@ -118,6 +118,8 @@ function reponseQuestions(a, b, c, result) {
     if (tabRep.indexOf(numC), 0, tabRep.length) {
         if (numC !== numB) {
 
+            reponseC = tabRep[numC];
+        }
             if (numC !== numA) {
                 reponseC = tabRep[numC];
 
@@ -127,7 +129,7 @@ function reponseQuestions(a, b, c, result) {
         }
 
     }
-    }
+    
 
     let listeReponses = document.getElementById('listeReponses');
     listeReponses.innerHTML = "<p>Qui Suis-je ?</p>" + "<br>" +
