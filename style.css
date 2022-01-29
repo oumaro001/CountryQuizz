@@ -228,13 +228,13 @@ ol li a:hover{
 
         .compteurRejouer > .compteurBarre{
 
-           bottom: -30%;
+           bottom: -80%;
            width: 90%;
 
         }
 
         .compteurRejouer > #rejouer{
 
-            bottom: -40%;
+            bottom: -90%;
         }
 }
