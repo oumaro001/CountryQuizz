@@ -124,6 +124,7 @@ function reponseQuestions(a, b, c, result) {
 
         } else {
 
+            numC = Math.floor(Math.random() * tabRep.length)
             reponseC = tabRep[numC];
         }
 
