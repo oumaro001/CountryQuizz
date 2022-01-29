@@ -6,58 +6,85 @@ let asie = document.getElementById('asie');
 let oceanie = document.getElementById('oceanie');
 let monde = document.getElementById('monde');
 
-
 /*-------La section---------------------------*/
-let section = document.querySelector('sectionGame');
-
+let section = document.querySelector('.sectionGame');
 /*-----Le block image---------------*/
 let afficheDrapeau = document.getElementById("afficheDrapeau");
 
-
-
 /*----- La barre compteur -------*/
-
 let compteurBarre = document.querySelector('.compteurBarre');
 compteurBarre.style.display = "none";
+let verifTime = false; //condition de verification de la fonction tempsEcroulé
+/*-----Le boutton REJOUER --------*/
+let btnRejouer = document.getElementById('rejouer');
+btnRejouer.style.display = "none";
+btnRejouer.addEventListener('click', () => {
+
+    location.reload();
+
+})
+
+
 
 /*---------function qui compare les reponses et savoir si on a gagné-------*/
-function gagnerPerdu(clickrep, result,finTime) {
+function gagnerPerdu(clickrep, result, finTime) {
 
 
     let gagné = '<p style="color: green">T\'as Gagné !!!</p>';
     let perdu = '<p style="color: red">T\'as Perdu !!!</p>';
     let nameComparer = result.name.common;
 
-
+    verifTime = true;
     if (clickrep == nameComparer) {
 
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = gagné;
-        afficheDrapeau.innerHTML= " ";
-        afficheDrapeau.innerHTML ='<img src= "gagnerGif.gif">';
+        afficheDrapeau.innerHTML = " ";
+        afficheDrapeau.innerHTML = '<img src= "gagnerGif.gif">';
 
     } else {
 
         listeReponses.innerHTML = " ";
         listeReponses.innerHTML = perdu;
-        afficheDrapeau.innerHTML= " ";
-        afficheDrapeau.innerHTML ='<img src= "perduGif.gif">';
+        afficheDrapeau.innerHTML = " ";
+        afficheDrapeau.innerHTML = '<img src= "perduGif.gif">';
     }
 
     compteurBarre.style.display = "none";
-    
+    btnRejouer.style.display = "block";
+
+    europe.disabled = true;
+    afrique.disabled = true;
+    asie.disabled = true;
+    amerique.disabled = true;
+    oceanie.disabled = true;
+    monde.disabled = true;
+
+
+
 
 }
-/*----------- le time ---------------------*/
-function time (){
+/*----------- function pour le compteur  ---------------------*/
+function tempsEcoulé() {
 
-    if(gagnerPerdu === false){
-        afficheDrapeau.innerHTML = "";
-        afficheDrapeau.innerHTML  = '<p style="font-size: 2em">Le temps s\'est ecroulé</p>'
+
+
+    if (verifTime == false) {
+        section.innerHTML = "";
+        section.innerHTML = '<p style="font-size: 2em">Le temps est écroulée</p>'
     }
+    btnRejouer.style.display = "block";
+    compteurBarre.style.display = "none";
+
+    europe.disabled = true;
+    afrique.disabled = true;
+    asie.disabled = true;
+    amerique.disabled = true;
+    oceanie.disabled = true;
+    monde.disabled = true;
 
 
-};
+}
 
 /*---------function pour afficher les reponses -------*/
 function reponseQuestions(a, b, c, result) {
@@ -99,7 +126,6 @@ function reponseQuestions(a, b, c, result) {
 
             reponseC = tabRep[numC];
         }
-
 
     }
 
@@ -233,7 +259,9 @@ europe.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Europe");
-    
+    setInterval(tempsEcoulé, 53000);
+
+
 
 
 });
@@ -242,6 +270,8 @@ afrique.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Africa");
+    setInterval(tempsEcoulé, 53000);
+
 
 
 });
@@ -250,6 +280,8 @@ amerique.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("America");
+    setInterval(tempsEcoulé, 53000);
+
 
 
 });
@@ -257,6 +289,8 @@ asie.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Asia");
+    setInterval(tempsEcoulé, 53000);
+
 
 
 });
@@ -265,6 +299,8 @@ oceanie.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
     showCounttryByContinents("Oceania");
+    setInterval(tempsEcoulé, 53000);
+
 
 
 });
@@ -272,7 +308,9 @@ oceanie.addEventListener('click', () => {
 monde.addEventListener('click', () => {
 
     afficheDrapeau.innerHTML = " ";
+    setInterval(tempsEcoulé, 53000);
     showCounttryByContinents("all");
+
 
 
 });
