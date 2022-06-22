@@ -61,7 +61,7 @@ nav button {
 
     position: absolute;
     left: 0%;
-    width: 100%;
+    margin-left: 150px;
     height: 264px;
     
 }
@@ -212,9 +212,8 @@ ol li a:hover{
 
         .sectionGame img{
 
-            position: absolute;
-            left: 1%; 
-            width: 22rem;
+           display: flex;
+            justify-content: center;
             height: 264px;
 
             
